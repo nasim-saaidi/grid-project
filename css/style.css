@@ -5,10 +5,32 @@
         grid-template-rows:  repeat(3, 150px) ;
         gap: 10px;
         margin: auto;
+        background-color: black;
+        margin-top: 50px;
+        
 }
+
 
 div {
         grid-template-columns: 100px 100px 100px;
         grid-template-rows: 100px 100px 100px;
-        border: solid black 1px;
+     
+        background-color: white;
     }
+
+header {
+        font-size: 100px;
+        text-align: center;
+        color: white;
+}
+
+body {
+        background-color: black;
+}
+
+img {
+        height: 100px;
+        width: 100px;
+        display: none;
+}
+
