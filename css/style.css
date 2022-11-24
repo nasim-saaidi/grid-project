@@ -14,8 +14,8 @@
 div {
         grid-template-columns: 100px 100px 100px;
         grid-template-rows: 100px 100px 100px;
-     
         background-color: white;
+        
     }
 
 header {
@@ -28,9 +28,19 @@ body {
         background-color: black;
 }
 
-img {
-        height: 100px;
-        width: 100px;
-        display: none;
+.wrapper > div {
+        background-color: white;
+        background-repeat: no-repeat;
+        background-size: contain;
+}
+
+.x-filled {
+        background: url(../x-symbol_318-1407.webp);
+        background-position: center;
+}
+
+.y-filled {
+        background: url(../images.png);
+        background-position: center;
 }
 
