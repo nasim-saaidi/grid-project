@@ -38,6 +38,10 @@ function updateArray(element, index) {
 function vibecheck() {
     if (arr[0] + arr[3] + arr[6] == 3) {
         alert('x won');
+        let confirm = confirm("wil je opniew beginnen?");
+        function replay() {
+            
+        }
     }
     else if (arr[0] + arr[3] + arr[6] == -3) {
         alert('y won');
@@ -71,8 +75,21 @@ function vibecheck() {
     }
     else if(arr[6] + arr[7] + arr[8] == -3) {
         alert("Y won")
-        
+
     }
+    else if(arr[0] + arr[4] + arr[8] == 3) {
+        alert('X won')
+    }
+    else if(arr[0] + arr[4] + arr[8] == -3) {
+        alert('Y won')
+    }
+    else if(arr[7] + arr[4] + arr[2] == 3) {
+        alert('X won')
+    }
+    else if(arr[7] + arr[4] + arr[2] == -3) {
+        alert('Y won')
+    }
+
 }
 buttons.forEach((element, index) => {
     buttons[index].addEventListener("click", () => {
