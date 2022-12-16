@@ -2,6 +2,8 @@ let turn = 'x'
 const buttons = document.querySelectorAll(".wrapper > div");
 let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let gameOver = false;
+let x = document.innerhtml(".pointX")
+let player1 = document.querySelector(".name1")
 
 firstturn = true
 x = true
@@ -159,13 +161,17 @@ console.log()
 
 let username1 = document.querySelector(".username1");
 
-username1.onkeydown = function(e) {
 
-   
-        window.localStorage.setItem('username1', username1.textContent);
-        alert(window.localStorage.getItem("username1"))
-   
+username1.onkeydown = function(e) {
+    alert("cringe")
+    e.keycode (13) {
+        
+    };
+   localStorage.setItem('.name1').value
+       
 
     
 } 
+
+
 
