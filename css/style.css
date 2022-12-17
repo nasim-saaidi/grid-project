@@ -1,7 +1,7 @@
 .wrapper {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        width: 700px;
+        grid-template-columns: repeat(5, 1fr);
+        width: 800px;
         grid-template-rows:  repeat(3, 150px) ;
         gap: 10px;
         margin: auto;
@@ -15,9 +15,11 @@ width: 25px;
 color: black;
 }
 
+
 input {
         width: 120px;
 }
+
 .intro {
 grid-row: 1/4;   
 font-size: 15px;     
@@ -95,3 +97,39 @@ margin-bottom: 10px;
         cursor: pointer;
 }
 
+.box10 {
+        grid-column: 5/6;
+        grid-row: 1/4;
+        }
+        
+.pvp {
+        color: blue;
+        border: solid 1px blue;
+        background-color: black;
+        font-size: 30px;
+        height: 70px;
+        width: 70px;
+        margin-left: 50px;
+        margin-top: 50px;
+}
+
+.pvp > p {
+        margin: auto;
+        margin-top: 20px;
+}
+
+.pve {
+        color: red;
+        border: solid 1px red;
+        background-color: black;
+        font-size: 30px;
+        height: 70px;
+        width: 70px;
+        margin-left: 50px;
+        /* margin-top: 50px; */
+}
+
+.pve > p {
+        margin: auto;
+        margin-top: 20px;
+}

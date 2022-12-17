@@ -2,12 +2,15 @@ let turn = 'x'
 const buttons = document.querySelectorAll(".wrapper > div");
 let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let gameOver = false;
-let x = document.innerhtml(".pointX")
-let player1 = document.querySelector(".name1")
+const pointsX = document.querySelector(".pointX");
+const points1 = pointsX.textContent;
+const pointsy = document.querySelector(".pointO");
+const points2 = pointsy.textContent;
+let pvp = true;
+let pointsPlayerX = 0;
+let pointsPlayerO = 0;
+firstturn = true;
 
-firstturn = true
-x = true
-y = true
 // buttons.forEach(function (element) {
 //     element.addEventListener("click", () => {
 //         element.classList.add('x-filled');
@@ -28,9 +31,6 @@ y = true
 //     })
 // }
 
-function switchTurn() {
-
-}
 
 function updateArray(element, index) {
     if (element.classList.contains("x-filled")) {
@@ -53,66 +53,71 @@ function updateArray(element, index) {
 //     vibecheck();
 // }
 
-function xwinconfirm() {
+function XWinConfirm() {
+    pointsPlayerX++;
+    pointsX.textContent = pointsPlayerX;
     alert("x won")
     gameOver = true
+    
 }
 
-function ywinconfirm() {
+function YWinConfirm() {
+    pointsPlayerO++;
+    pointsy.textContent = pointsPlayerO;
     alert('y won');
         gameOver = true;
 }
 
 function vibecheck() {
     if (arr[0] + arr[3] + arr[6] == 3) {
-        xwinconfirm()
+        XWinConfirm();
     }
     else if (arr[0] + arr[3] + arr[6] == -3) {
-        ywinconfirm() 
+        YWinConfirm() 
     }
     else if (arr[1] + arr[4] + arr[7] == 3) {
-        xwinconfirm()
+        XWinConfirm()
     }
     else if (arr[1] + arr[4] + arr[7] == -3) {
-        ywinconfirm()
+        YWinConfirm()
     }
     else if (arr[2] + arr[5] + arr[8] == 3) {
-        xwinconfirm()
+        XWinConfirm()
     }
     else if (arr[2] + arr[5] + arr[8] == -3) {
-        ywinconfirm()
+        YWinConfirm()
     }
     else if (arr[0] + arr[1] + arr[2] == 3) {
-        xwinconfirm()
+        XWinConfirm()
     }
     else if (arr[0] + arr[1] + arr[2] == -3) {
-        ywinconfirm()
+        YWinConfirm()
     }
     else if (arr[3] + arr[4] + arr[5] == 3) {
-        xwinconfirm()
+        XWinConfirm()
     }
     else if (arr[3] + arr[4] + arr[5] == -3) {
-        ywinconfirm()
+        YWinConfirm()
     }
     else if (arr[6] + arr[7] + arr[8] == 3) {
-        xwinconfirm()
+        XWinConfirm()
     }
     else if (arr[6] + arr[7] + arr[8] == -3) {
-        ywinconfirm()
+        YWinConfirm()
     }
     else if (arr[0] + arr[4] + arr[8] == 3) {
-        xwinconfirm()
+        XWinConfirm()
 
     }
     else if (arr[0] + arr[4] + arr[8] == -3) {
-        ywinconfirm()
+        YWinConfirm()
     }
     else if (arr[6] + arr[4] + arr[2] == 3) {
-        xwinconfirm()
+        XWinConfirm()
 
     }
     else if (arr[6] + arr[4] + arr[2] == -3) {
-        ywinconfirm()
+        YWinConfirm()
     }
 
 }
@@ -127,6 +132,7 @@ myBtn.addEventListener('click', function () {
     gameOver = false;
 });
 
+if (pvp == true ) {
 buttons.forEach((element, index) => {
     buttons[index].addEventListener("click", () => {
         if (arr[index] == 0) {
@@ -152,26 +158,51 @@ buttons.forEach((element, index) => {
         }
     })
 })
+}
 
-console.log(arr)
-
-
-
-console.log()
+if (pvp == false ) {
+    buttons.forEach((element, index) => {
+        buttons[index].addEventListener("click", () => {
+            if (arr[index] == 0) {
+                if (gameOver == false) {
+    
+                    switch (turn) {
+                        case "x":
+                            element.classList.add('x-filled');
+                            updateArray(element, index);
+                            vibecheck();
+                            turn = 'y';
+                            break;
+                            x = false
+    
+                        case "y":
+                            element.classList.add('y-filled');
+                            updateArray(element, index);
+                            vibecheck();
+                            turn = "x"
+                            break;
+                    }
+                }
+            }
+        })
+    })
+    }
 
 let username1 = document.querySelector(".username1");
 
 
-username1.onkeydown = function(e) {
-    alert("cringe")
-    e.keycode (13) {
-        
-    };
-   localStorage.setItem('.name1').value
+// username1.onkeydown = function(e) {
+//     alert("cringe")
+//     if (e.keycode (13)) {
+    
+//     };
+//    localStorage.setItem('.name1').value
        
 
     
-} 
+// } 
+
+console.log(player1)
 
 
 
