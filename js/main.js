@@ -32,14 +32,7 @@ firstturn = true;
 // }
 
 
-function updateArray(element, index) {
-    if (element.classList.contains("x-filled")) {
-        arr[index] = 1;
-    } else if (element.classList.contains("y-filled")) {
-        arr[index] = -1;
-    }
 
-}
 
 // function Haltx() {
 //     element.classList.add('x-filled');
@@ -53,22 +46,8 @@ function updateArray(element, index) {
 //     vibecheck();
 // }
 
-function XWinConfirm() {
-    pointsPlayerX++;
-    pointsX.textContent = pointsPlayerX;
-    alert("x won")
-    gameOver = true
-    
-}
 
-function YWinConfirm() {
-    pointsPlayerO++;
-    pointsy.textContent = pointsPlayerO;
-    alert('y won');
-        gameOver = true;
-}
-
-function vibecheck() {
+function winCheck() {
     if (arr[0] + arr[3] + arr[6] == 3) {
         XWinConfirm();
     }
@@ -124,6 +103,7 @@ function vibecheck() {
 
 const myBtn = document.querySelector('.reset');
 
+
 myBtn.addEventListener('click', function () {
 
     arr = [0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -142,7 +122,7 @@ buttons.forEach((element, index) => {
                     case "x":
                         element.classList.add('x-filled');
                         updateArray(element, index);
-                        vibecheck();
+                        winCheck();
                         turn = 'y';
                         break;
                         x = false
@@ -150,7 +130,7 @@ buttons.forEach((element, index) => {
                     case "y":
                         element.classList.add('y-filled');
                         updateArray(element, index);
-                        vibecheck();
+                        winCheck();
                         turn = "x"
                         break;
                 }
@@ -165,7 +145,6 @@ if (pvp == false ) {
         buttons[index].addEventListener("click", () => {
             if (arr[index] == 0) {
                 if (gameOver == false) {
-    
                     switch (turn) {
                         case "x":
                             element.classList.add('x-filled');
@@ -191,16 +170,12 @@ if (pvp == false ) {
 let username1 = document.querySelector(".username1");
 
 
-// username1.onkeydown = function(e) {
-//     alert("cringe")
-//     if (e.keycode (13)) {
-    
-//     };
-//    localStorage.setItem('.name1').value
-       
+username1.onkeydown = function(e) {
+   localStorage.setItem('.name1', 'ye').value
+    alert(localStorage.getItem('name1'))   
 
     
-// } 
+} 
 
 console.log(player1)
 
