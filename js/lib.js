@@ -9,16 +9,14 @@ function updateArray(element, index) {
 
 function XWinConfirm() {
     pointsPlayerX = parseInt(localStorage.getItem("Xpoints"));
-   
     pointsPlayerX++;
     localStorage.setItem("Xpoints", pointsPlayerX);
     console.log(pointsPlayerX);
     console.log(parseInt(localStorage.getItem("Xpoints")));
     pointsX.textContent = pointsPlayerX;
-    alert("x won");
+    let alertName = localStorage.getItem("name");
+    alert(alertName + " Won");
     gameOver = true;
-    
-
 }
 
 function YWinConfirm() {
@@ -28,17 +26,14 @@ function YWinConfirm() {
     console.log(pointsPlayerO);
     console.log(parseInt(localStorage.getItem("Opoints")))
     pointsy.textContent = pointsPlayerO;
-    alert('y won');
+    alert(localStorage.getItem(input2.value) +' won');
     gameOver = true;
 
 }
 
 function botPressO() {
-    for (let i = -1; i < arr.length; i++) {
-        const botMaths = arr[i];
+    for (let i = 0; i <= arr.length; i++) {
+        let botMaths = arr[i];
         console.log(botMaths)
-        // if(arr.contains(0)) {
-        // element.classList.add('y-filled')    
-        // }
     }
 }

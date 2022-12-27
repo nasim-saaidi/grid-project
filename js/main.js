@@ -13,35 +13,35 @@ let pointsPlayerO = parseInt(localStorage.getItem("Opoints"));
 pointsy.textContent = pointsPlayerO;
 firstturn = true;
 
-    
+
 
 
 
 function winCheck() {
     if (arr[0] + arr[3] + arr[6] == 3) {
         XWinConfirm();
-        
-        
+        WinXname();
+
     }
     else if (arr[0] + arr[3] + arr[6] == -3) {
         YWinConfirm();
-        
+
     }
     else if (arr[1] + arr[4] + arr[7] == 3) {
         XWinConfirm();
-        
+
     }
     else if (arr[1] + arr[4] + arr[7] == -3) {
         YWinConfirm();
-        
+
     }
     else if (arr[2] + arr[5] + arr[8] == 3) {
         XWinConfirm();
-        
+
     }
     else if (arr[2] + arr[5] + arr[8] == -3) {
         YWinConfirm();
-        
+
     }
     else if (arr[0] + arr[1] + arr[2] == 3) {
         XWinConfirm();
@@ -60,7 +60,7 @@ function winCheck() {
     }
     else if (arr[6] + arr[7] + arr[8] == -3) {
         YWinConfirm();
-        
+
     }
     else if (arr[0] + arr[4] + arr[8] == 3) {
         XWinConfirm()
@@ -77,24 +77,29 @@ function winCheck() {
 
 }
 
+const reload = document.querySelector('.reload');
+
+reload.addEventListener('click', function () {
+    location.reload();
+})
 
 
 const reset = document.querySelector('.reset');
 
 
-reset.addEventListener('click', function () {
-
+reset.addEventListener('click', function() {
     arr = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     buttons.forEach(function (element) {
         element.classList = null;
-
     })
-    localStorage.setItem("Xpoints", "0");
-    localStorage.setItem("Opoints", "0");
     console.log(localStorage);
     gameOver = false;
-    pointsX.textContent = pointsPlayerX;
-    pointsy.textContent = pointsPlayerO;
+    let resetO = 0
+    let resetX = 0
+    pointsy.textContent = resetO
+    pointsX.textContent = resetX
+    localStorage.setItem("Xpoints", "0");
+    localStorage.setItem("Opoints", "0");
 });
 
 if (pvp == true) {
@@ -113,7 +118,7 @@ if (pvp == true) {
                             x = false
 
                         case "y":
-                            element.classList.add('y-filled');
+                           element.classList.add('y-filled')
                             updateArray(element, index);
                             winCheck();
                             turn = "x"
@@ -155,14 +160,16 @@ if (pvp == true) {
 
 console.log(arr)
 
-let username1 = document.querySelector(".username1");
 
+let input = document.querySelector('.input');
 
-username1.onkeydown = function (e) {
-//    localStorage.setItem('.name1', 'ye')
-    alert(localStorage.getItem('name1'))
-}
+input.addEventListener('click', function() {
+localStorage.setItem('name', input.value)});
+console.log(input.value);
 
+let input2 = document.querySelector('.input2');
 
-
+input2.addEventListener('click', function() {
+localStorage.setItem('name', input2.value)});
+console.log(input2.value)
 
