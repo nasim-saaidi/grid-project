@@ -14,7 +14,7 @@ function XWinConfirm() {
     console.log(pointsPlayerX);
     console.log(parseInt(localStorage.getItem("Xpoints")));
     pointsX.textContent = pointsPlayerX;
-    alert(localStorage.getItem(PlayerOneName) +' won')
+    alert(window.localStorage.getItem('playerOneName') +' won');
     gameOver = true;
 }
 
@@ -25,7 +25,7 @@ function YWinConfirm() {
     console.log(pointsPlayerO);
     console.log(parseInt(localStorage.getItem("Opoints")))
     pointsy.textContent = pointsPlayerO;
-    alert(localStorage.getItem(PlayerOneName) +' won')
+    alert(window.localStorage.getItem('playerTwoName') +' won');
     gameOver = true;
 
 }

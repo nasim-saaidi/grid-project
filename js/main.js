@@ -20,7 +20,6 @@ firstturn = true;
 function winCheck() {
     if (arr[0] + arr[3] + arr[6] == 3) {
         XWinConfirm();
-        WinXname();
 
     }
     else if (arr[0] + arr[3] + arr[6] == -3) {
@@ -80,7 +79,11 @@ function winCheck() {
 const reload = document.querySelector('.reload');
 
 reload.addEventListener('click', function () {
-    location.reload();
+    arr = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    buttons.forEach(function (element) {
+        element.classList = null;
+    })
+    gameOver = false;
 })
 
 
@@ -162,8 +165,9 @@ if (pvp == true) {
 console.log(arr)
 
 
-// let input = document.querySelector('.input');
+let input = document.querySelector('.input');
 
+let input2 = document.querySelector('.input2')
 // input.addEventListener('click', function() {
 // localStorage.setItem('name', input.value)});
 // console.log(input.value);
@@ -174,13 +178,13 @@ console.log(arr)
 // localStorage.setItem('name', input2.value)});
 // console.log(input2.value)
 
-
-
 let PlayerOneName;
+let playerTwoName;
 
 const save = document.querySelector('.saveName');
 save.addEventListener('click', myFunction); 
 
 function myFunction() {
-    localStorage.setItem('name1', PlayerOneName)
-};
+    window.localStorage.setItem('playerOneName', input.value);
+    window.localStorage.setItem('playerTwoName', input2.value);
+}
