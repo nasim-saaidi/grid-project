@@ -118,7 +118,8 @@ if (pvp == true) {
                             x = false
 
                         case "y":
-                           element.classList.add('y-filled')
+                            element.classList.add('y-filled');
+                            
                             updateArray(element, index);
                             winCheck();
                             turn = "x"
@@ -161,15 +162,25 @@ if (pvp == true) {
 console.log(arr)
 
 
-let input = document.querySelector('.input');
+// let input = document.querySelector('.input');
 
-input.addEventListener('click', function() {
-localStorage.setItem('name', input.value)});
-console.log(input.value);
+// input.addEventListener('click', function() {
+// localStorage.setItem('name', input.value)});
+// console.log(input.value);
 
-let input2 = document.querySelector('.input2');
+// let input2 = document.querySelector('.input2');
 
-input2.addEventListener('click', function() {
-localStorage.setItem('name', input2.value)});
-console.log(input2.value)
+// input2.addEventListener('click', function() {
+// localStorage.setItem('name', input2.value)});
+// console.log(input2.value)
 
+
+
+let PlayerOneName;
+
+const save = document.querySelector('.saveName');
+save.addEventListener('click', myFunction); 
+
+function myFunction() {
+    localStorage.setItem('name1', PlayerOneName)
+};

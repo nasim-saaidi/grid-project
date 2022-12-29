@@ -14,8 +14,7 @@ function XWinConfirm() {
     console.log(pointsPlayerX);
     console.log(parseInt(localStorage.getItem("Xpoints")));
     pointsX.textContent = pointsPlayerX;
-    let alertName = localStorage.getItem("name");
-    alert(alertName + " Won");
+    alert(localStorage.getItem(PlayerOneName) +' won')
     gameOver = true;
 }
 
@@ -26,14 +25,19 @@ function YWinConfirm() {
     console.log(pointsPlayerO);
     console.log(parseInt(localStorage.getItem("Opoints")))
     pointsy.textContent = pointsPlayerO;
-    alert(localStorage.getItem(input2.value) +' won');
+    alert(localStorage.getItem(PlayerOneName) +' won')
     gameOver = true;
 
 }
 
 function botPressO() {
-    for (let i = 0; i <= arr.length; i++) {
-        let botMaths = arr[i];
-        console.log(botMaths)
-    }
+    
+}
+
+for (let i = -1; i <= arr.length; i++) {
+    console.log(i);
+   if(arr.includes(0)) {
+       buttons.classList.add('y-filled');
+   }
+
 }

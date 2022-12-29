@@ -127,6 +127,11 @@ margin-bottom: 10px;
         cursor: pointer;
 }
 
+.saveName {
+        border: solid 1px black;
+        cursor: pointer;
+}
+
 /* .pvp > p {
         margin: auto;
         margin-top: 20px;
