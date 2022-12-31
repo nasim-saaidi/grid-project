@@ -42,7 +42,7 @@ function YWinConfirm() {
 function botPressO() {
     let randomMove = -1;
   while(arr[randomMove] != 0) {
-    randomMove = generateRandomNumber;
+    randomMove = generateRandomNumber();
   };
   arr[randomMove] = -1;
   buttons[randomMove].classList.add("y-filled");
