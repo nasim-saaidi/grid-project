@@ -123,9 +123,9 @@ if (pvp == true) {
 
                         case "y":
                             botPressO();
-                            // updateArray(element, index);
+                            updateArray(element, index);
                             winCheck();
-                            turn = "x"
+                            turn = "x";
                             break;
                     }
                 }

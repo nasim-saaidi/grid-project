@@ -41,10 +41,11 @@ function YWinConfirm() {
 
 function botPressO() {
     let randomMove = -1;
-  while(arr[randomMove] =! 0) {
-    randomMove = generateRandomNumber
+  while(arr[randomMove] != 0) {
+    randomMove = generateRandomNumber;
   };
   arr[randomMove] = -1;
-
-  updateArray
+  buttons[randomMove].classList.add("y-filled");
+  updateArray();
 }
+
