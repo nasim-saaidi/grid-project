@@ -14,7 +14,11 @@ function XWinConfirm() {
     console.log(pointsPlayerX);
     console.log(parseInt(localStorage.getItem("Xpoints")));
     pointsX.textContent = pointsPlayerX;
-    alert(window.localStorage.getItem('playerOneName') +' won');
+    if (window.localStorage.getItem('playerOneName' ) == '') {
+        alert("player X won")
+    }
+    else {
+    alert(window.localStorage.getItem('playerOneName') +' won')}
     gameOver = true;
 }
 
@@ -30,14 +34,17 @@ function YWinConfirm() {
 
 }
 
+
+    function generateRandomNumber() {
+        return Math.round(Math.random() * 9);
+    }
+
 function botPressO() {
-    
-}
+    let randomMove = -1;
+  while(arr[randomMove] =! 0) {
+    randomMove = generateRandomNumber
+  };
+  arr[randomMove] = -1;
 
-for (let i = -1; i <= arr.length; i++) {
-    console.log(i);
-   if(arr.includes(0)) {
-       buttons.classList.add('y-filled');
-   }
-
+  updateArray
 }

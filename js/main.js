@@ -1,5 +1,6 @@
 let turn = 'x'
-const buttons = document.querySelectorAll(".wrapper > div");
+const buttons = document.querySelectorAll(".box");
+
 let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let gameOver = false;
 const pointsX = document.querySelector(".pointX");
@@ -121,9 +122,8 @@ if (pvp == true) {
                             x = false
 
                         case "y":
-                            element.classList.add('y-filled');
-                            
-                            updateArray(element, index);
+                            botPressO();
+                            // updateArray(element, index);
                             winCheck();
                             turn = "x"
                             break;
