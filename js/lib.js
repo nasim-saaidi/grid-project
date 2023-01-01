@@ -46,6 +46,4 @@ function botPressO() {
   };
   arr[randomMove] = -1;
   buttons[randomMove].classList.add("y-filled");
-  updateArray();
 }
-

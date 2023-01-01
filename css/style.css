@@ -121,6 +121,7 @@ margin-bottom: 10px;
         width: 70px;
         margin-left: 50px;
         margin-top: 50px;
+        cursor: pointer;
 }
 
 .reset  :hover {
@@ -132,7 +133,7 @@ margin-bottom: 10px;
         cursor: pointer;
 }
 
-/* .pvp > p {
+ .pvp > p {
         margin: auto;
         margin-top: 20px;
 }
@@ -145,10 +146,17 @@ margin-bottom: 10px;
         height: 70px;
         width: 70px;
         margin-left: 50px;
-        /* margin-top: 50px; */
-/* }
+         margin-top: 50px;
+         margin-right: 20px; 
+         cursor: pointer;
+ }
 
 .pve > p {
         margin: auto;
         margin-top: 20px;
-} */ 
+}  
+
+.box10 {
+        height: 500px;
+        cursor: auto;
+}

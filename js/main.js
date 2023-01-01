@@ -15,7 +15,12 @@ pointsy.textContent = pointsPlayerO;
 firstturn = true;
 
 
+const playerVplayer = document.querySelector('.pve');
+playerVplayer.addEventListener('click', work);
 
+function work() {
+    pvp = false;
+}
 
 
 function winCheck() {
@@ -91,7 +96,7 @@ reload.addEventListener('click', function () {
 const reset = document.querySelector('.reset');
 
 
-reset.addEventListener('click', function() {
+reset.addEventListener('click', function () {
     arr = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     buttons.forEach(function (element) {
         element.classList = null;
@@ -122,7 +127,7 @@ if (pvp == true) {
                             x = false
 
                         case "y":
-                            botPressO();
+                            element.classList.add('y-filled');
                             updateArray(element, index);
                             winCheck();
                             turn = "x";
@@ -134,33 +139,34 @@ if (pvp == true) {
     })
 }
 
-// if (pvp == false) {
-//     buttons.forEach((element, index) => {
-//         buttons[index].addEventListener("click", () => {
-//             if (arr[index] == 0) {
-//                 if (gameOver == false) {
-//                     switch (turn) {
-//                         case "x":
-//                             element.classList.add('x-filled');
-//                             updateArray(element, index);
-//                             vibecheck();
-//                             turn = 'y';
-//                             break;
-//                             x = false
 
-//                         case "y":
-//                             element.classList.add('y-filled');
-//                             botPressO
-//                             updateArray(element, index);
-//                             winCheck();
-//                             turn = "x"
-//                             break;
-//                     }
-//                 }
-//             }
-//         })
-//     })
-// }
+    buttons.forEach((element, index) => {
+        buttons[index].addEventListener("click", () => {
+            if (arr[index] == 0) {
+                if (gameOver == false) {
+                    if (pvp == false) {
+                    switch (turn) {
+                        case "x":
+                            element.classList.add('x-filled');
+                            updateArray(element, index);
+                            winCheck();
+                            turn = 'y';
+                            break;
+                            x = false
+
+                        case "y":
+                            botPressO();
+                            updateArray(element, index);
+                            winCheck();
+                            turn = "x";
+                            break;
+                    }
+                }
+                }
+            }
+        })
+    })
+
 
 console.log(arr)
 
@@ -168,21 +174,12 @@ console.log(arr)
 let input = document.querySelector('.input');
 
 let input2 = document.querySelector('.input2')
-// input.addEventListener('click', function() {
-// localStorage.setItem('name', input.value)});
-// console.log(input.value);
-
-// let input2 = document.querySelector('.input2');
-
-// input2.addEventListener('click', function() {
-// localStorage.setItem('name', input2.value)});
-// console.log(input2.value)
 
 let PlayerOneName;
 let playerTwoName;
 
 const save = document.querySelector('.saveName');
-save.addEventListener('click', myFunction); 
+save.addEventListener('click', myFunction);
 
 function myFunction() {
     window.localStorage.setItem('playerOneName', input.value);
