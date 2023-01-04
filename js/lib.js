@@ -29,7 +29,11 @@ function YWinConfirm() {
     console.log(pointsPlayerO);
     console.log(parseInt(localStorage.getItem("Opoints")))
     pointsy.textContent = pointsPlayerO;
-    alert(window.localStorage.getItem('playerTwoName') +' won');
+    if (window.localStorage.getItem('playerTwoName' ) == '') {
+        alert("player Y won")
+    }
+    else {
+    alert(window.localStorage.getItem('playerTwoName') +' won')};
     gameOver = true;
 
 }

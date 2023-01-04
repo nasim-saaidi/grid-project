@@ -8,18 +8,19 @@ const points1 = pointsX.textContent;
 const pointsy = document.querySelector(".pointO");
 const points2 = pointsy.textContent;
 let pvp = true;
+let pve = false;
 let pointsPlayerX = parseInt(localStorage.getItem("Xpoints"));
 pointsX.textContent = pointsPlayerX;
 let pointsPlayerO = parseInt(localStorage.getItem("Opoints"));
 pointsy.textContent = pointsPlayerO;
-firstturn = true;
+firstturn = false;
 
 
 const playerVplayer = document.querySelector('.pve');
 playerVplayer.addEventListener('click', work);
 
 function work() {
-    pvp = false;
+     pvp = false;
 }
 
 
@@ -111,40 +112,29 @@ reset.addEventListener('click', function () {
     localStorage.setItem("Opoints", "0");
 });
 
-if (pvp == true) {
+if (pvp == false) {
     buttons.forEach((element, index) => {
         buttons[index].addEventListener("click", () => {
             if (arr[index] == 0) {
                 if (gameOver == false) {
+                    element.classList.add('x-filled');
+                    updateArray(element, index);
+                    winCheck();
+                    turn = 'y';
+                    botPressO();
+                    winCheck();
 
-                    switch (turn) {
-                        case "x":
-                            element.classList.add('x-filled');
-                            updateArray(element, index);
-                            winCheck();
-                            turn = 'y';
-                            break;
-                            x = false
-
-                        case "y":
-                            element.classList.add('y-filled');
-                            updateArray(element, index);
-                            winCheck();
-                            turn = "x";
-                            break;
-                    }
                 }
             }
         })
     })
 }
-
-
+else if (pvp == true ) {
     buttons.forEach((element, index) => {
         buttons[index].addEventListener("click", () => {
             if (arr[index] == 0) {
                 if (gameOver == false) {
-                    if (pvp == false) {
+
                     switch (turn) {
                         case "x":
                             element.classList.add('x-filled');
@@ -155,18 +145,17 @@ if (pvp == true) {
                             x = false
 
                         case "y":
-                            botPressO();
+                            element.classList.add('y-filled')
                             updateArray(element, index);
                             winCheck();
                             turn = "x";
                             break;
                     }
                 }
-                }
             }
         })
     })
-
+};
 
 console.log(arr)
 
