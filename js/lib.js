@@ -7,7 +7,7 @@ function updateArray(element, index) {
 
 }
 
-function XWinConfirm() {
+function xWinConfirm() {
     pointsPlayerX = parseInt(localStorage.getItem("Xpoints"));
     pointsPlayerX++;
     localStorage.setItem("Xpoints", pointsPlayerX);
@@ -22,13 +22,13 @@ function XWinConfirm() {
     gameOver = true;
 }
 
-function YWinConfirm() {
+function yWinConfirm() {
     pointsPlayerO = parseInt(localStorage.getItem("Opoints"));
     pointsPlayerO++
     localStorage.setItem("Opoints", pointsPlayerO);
     console.log(pointsPlayerO);
     console.log(parseInt(localStorage.getItem("Opoints")))
-    pointsy.textContent = pointsPlayerO;
+    pointsY.textContent = pointsPlayerO;
     if (window.localStorage.getItem('playerTwoName' ) == '') {
         alert("player Y won")
     }
