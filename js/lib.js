@@ -51,3 +51,9 @@ function botPressO() {
   arr[randomMove] = -1;
   buttons[randomMove].classList.add("y-filled");
 }
+
+// array = [1, 2, 4, 6, 123];
+
+// array[0] = 1;
+
+// array[4] = 123;
