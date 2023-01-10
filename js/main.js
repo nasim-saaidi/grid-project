@@ -13,7 +13,6 @@ pointsX.textContent = pointsPlayerX;
 let pointsPlayerO = parseInt(localStorage.getItem("Opoints"));
 pointsY.textContent = pointsPlayerO;
 let tracker = 0;
-lastMove();
 
 
 const bot = document.querySelector('.pve');
@@ -21,7 +20,7 @@ bot.addEventListener('click', activatePve);
 
 function activatePve() {
     pvp = false;
-    movementCheck()
+    movementCheck();
 }
 
 const regular = document.querySelector('.pvp');
@@ -29,64 +28,75 @@ regular.addEventListener('click', activatePvp);
 
 function activatePvp() {
     pvp = true;
-    movementCheck()
+    movementCheck();
 }
 
 function winCheck() {
     if (arr[0] + arr[3] + arr[6] == 3) {
         xWinConfirm();
+        movementCheck();
 
     }
     else if (arr[0] + arr[3] + arr[6] == -3) {
         yWinConfirm();
-
+        movementCheck();
     }
     else if (arr[1] + arr[4] + arr[7] == 3) {
         xWinConfirm();
-
+        movementCheck();
     }
     else if (arr[1] + arr[4] + arr[7] == -3) {
         yWinConfirm();
-
+        movementCheck();
     }
     else if (arr[2] + arr[5] + arr[8] == 3) {
         xWinConfirm();
-
+        movementCheck();
     }
     else if (arr[2] + arr[5] + arr[8] == -3) {
         yWinConfirm();
-
+        movementCheck();
     }
     else if (arr[0] + arr[1] + arr[2] == 3) {
         xWinConfirm();
+        movementCheck();
     }
     else if (arr[0] + arr[1] + arr[2] == -3) {
         yWinConfirm();
+        movementCheck();
     }
     else if (arr[3] + arr[4] + arr[5] == 3) {
         xWinConfirm();
+        movementCheck();
     }
     else if (arr[3] + arr[4] + arr[5] == -3) {
         yWinConfirm();
+        movementCheck();
     }
     else if (arr[6] + arr[7] + arr[8] == 3) {
         xWinConfirm();
+        movementCheck();
     }
     else if (arr[6] + arr[7] + arr[8] == -3) {
         yWinConfirm();
+        movementCheck();
 
     }
     else if (arr[0] + arr[4] + arr[8] == 3) {
         xWinConfirm()
+        movementCheck();
     }
     else if (arr[0] + arr[4] + arr[8] == -3) {
         yWinConfirm();
+        movementCheck();
     }
     else if (arr[6] + arr[4] + arr[2] == 3) {
         xWinConfirm();
+        movementCheck();
     }
     else if (arr[6] + arr[4] + arr[2] == -3) {
         yWinConfirm();
+        movementCheck();
     }
 
 }
@@ -99,6 +109,7 @@ reload.addEventListener('click', function () {
         element.classList = null;
     })
     gameOver = false;
+    movementCheck();
 })
 
 
@@ -134,13 +145,12 @@ function movementCheck() {
                                 winCheck();
                                 turn = 'y';
                                 break;
-                                x = false
 
                             case "y":
                                 element.classList.add('y-filled')
                                 updateArray(element, index);
                                 winCheck();
-                                turn = "x";
+                                turn = 'x';
                                 break;
                         }
                     }
@@ -149,27 +159,6 @@ function movementCheck() {
         });
     }
     else if (pvp == false) {
-        buttons.forEach((element, index) => {
-            buttons[index].addEventListener("click", () => {
-                if (arr[index] == 0) {
-                    if (gameOver == false && tracker < 4) {
-                        element.classList.add('x-filled');
-                        updateArray(element, index);
-                        turn = 'y';
-                        botPressO();
-                        winCheck();
-                        tracker++;
-                        lastMove();
-                    }
-                }
-            })
-        })
-    }
-}
-
-
-function lastMove() {
-    if (tracker >= 4 && arr.contain == '0') {
         buttons.forEach((element, index) => {
             buttons[index].addEventListener("click", () => {
                 if (arr[index] == 0) {
@@ -185,7 +174,7 @@ function lastMove() {
                                 x = false
 
                             case "y":
-                                element.classList.add('y-filled')
+                                botPressO();
                                 updateArray(element, index);
                                 winCheck();
                                 turn = "x";
@@ -196,8 +185,25 @@ function lastMove() {
             })
         });
     }
-    tracker = 0
 }
+
+
+// function lastMove() {
+//     if (tracker >= 4 && arr.contain == '0') {
+//         buttons.forEach((element, index) => {
+//             buttons[index].addEventListener("click", () => {
+//                 if (arr[index] == 0) {
+//                     if (gameOver == false) {
+//                         element.classList.add('x-filled');
+//                         updateArray(element, index);
+//                         winCheck();
+//                     }
+//                 }
+//             })
+//         })
+//     }
+//     tracker = 0
+// }
 
 console.log(arr)
 
