@@ -2,7 +2,7 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         width: 800px;
-        grid-template-rows:  repeat(3, 150px) ;
+        grid-template-rows: repeat(3, 150px);
         gap: 10px;
         margin: auto;
         background-color: black;
@@ -10,9 +10,9 @@
 }
 
 .names {
-height: 30px;
-width: 25px;
-color: black;
+        height: 30px;
+        width: 25px;
+        color: black;
 }
 
 
@@ -21,41 +21,43 @@ input {
 }
 
 .intro {
-grid-row: 1/4;   
-font-size: 15px;     
-color: black;
+        grid-row: 1/4;
+        font-size: 15px;
+        color: black;
 }
+
 div {
-        grid-template-columns:  100px 100px 100px;
-        grid-template-rows:  100px 100px;
+        grid-template-columns: 100px 100px 100px;
+        grid-template-rows: 100px 100px;
         background-color: white;
-        
-    }
+
+}
 
 header {
         font-size: 100px;
         text-align: center;
         color: white;
-      
+
 }
 
 body {
         background-color: black;
-        
+
 }
 
-.wrapper > div {
+.wrapper>div {
         background-color: white;
         background-repeat: no-repeat;
         background-size: contain;
- 
+
 }
 
 main {
         background-color: white;
         background-repeat: no-repeat;
-        background-size: contain;        
+        background-size: contain;
 }
+
 .x-filled {
         background: url(../x-symbol_318-1407.webp);
         background-position: center;
@@ -68,8 +70,8 @@ main {
 
 .reset {
         border: solid white 1px;
-        height: 40px;
-        width: 50px;
+        height: 35px;
+        width: 60px;
         margin-top: 10px;
         font-size: 20px;
         color: white;
@@ -79,28 +81,30 @@ main {
 
 .reload {
         border: solid white 1px;
-        height: 40px;
-        width: 50px;
+        height: 35px;
+        width: 60px;
+        text-align: center;
+        padding: auto;
         margin-top: 10px;
         font-size: 20px;
         color: white;
         background-color: black;
         display: inline-block;
 }
-.loa {
-        margin:inherit
+
+.reload:hover {
+        cursor: pointer;
+        color: lightgray;
 }
 
-/* .names {
-border: solid black 1px;
-height: 150px;
-width: 250px;
-background-color: white;
-font-size: 30px;
-color: black;
-margin-bottom: 10px;
-} */
+.reset:hover {
+        cursor: pointer;
+        color: lightgray;
+}
 
+.loa {
+        margin: inherit
+}
 
 
 .box:hover {
@@ -110,8 +114,8 @@ margin-bottom: 10px;
 .box10 {
         grid-column: 5/6;
         grid-row: 1/4;
-        }
-        
+}
+
 .pvp {
         color: blue;
         border: solid 1px blue;
@@ -124,17 +128,29 @@ margin-bottom: 10px;
         cursor: pointer;
 }
 
-.reset  :hover {
-        cursor: pointer;
+.pvp:hover {
+        color: darkblue;
+}
+
+.pve:hover {
+        color: darkred;
+}
+
+input:hover {
+        background-color: lightgray;
 }
 
 .saveName {
         border: solid 1px black;
-        cursor: pointer;
         width: 30px;
 }
 
- .pvp > p {
+.saveName:hover {
+        background-color: lightgray;
+        cursor: pointer;
+}
+
+.pvp>p {
         margin: auto;
         margin-top: 20px;
 }
@@ -147,15 +163,15 @@ margin-bottom: 10px;
         height: 70px;
         width: 70px;
         margin-left: 40px;
-         margin-top: 50px;
-         margin-right: 20px; 
-         cursor: pointer;
- }
+        margin-top: 50px;
+        margin-right: 20px;
+        cursor: pointer;
+}
 
-.pve > p {
+.pve>p {
         margin: auto;
         margin-top: 20px;
-}  
+}
 
 .box10 {
         height: 500px;

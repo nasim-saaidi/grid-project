@@ -14,11 +14,12 @@ function xWinConfirm() {
     console.log(pointsPlayerX);
     console.log(parseInt(localStorage.getItem("Xpoints")));
     pointsX.textContent = pointsPlayerX;
-    if (window.localStorage.getItem('playerOneName' ) == '') {
+    if (window.localStorage.getItem('playerOneName') == '') {
         alert("player X won")
     }
     else {
-    alert(window.localStorage.getItem('playerOneName') +' won')}
+        alert(window.localStorage.getItem('playerOneName') + ' won')
+    }
     gameOver = true;
 }
 
@@ -29,31 +30,177 @@ function yWinConfirm() {
     console.log(pointsPlayerO);
     console.log(parseInt(localStorage.getItem("Opoints")))
     pointsY.textContent = pointsPlayerO;
-    if (window.localStorage.getItem('playerTwoName' ) == '') {
+    if (window.localStorage.getItem('playerTwoName') == '') {
         alert("player Y won")
     }
     else {
-    alert(window.localStorage.getItem('playerTwoName') +' won')};
+        alert(window.localStorage.getItem('playerTwoName') + ' won')
+    };
     gameOver = true;
 
 }
 
+const save = document.querySelector('.saveName');
+save.addEventListener('click', myFunction);
 
-    function generateRandomNumber() {
-        return Math.round(Math.random() * 9);
-    }
-
-function botPressO() {
-    let randomMove = -1;
-  while(arr[randomMove] != 0) {
-    randomMove = generateRandomNumber();
-  };
-  arr[randomMove] = -1;
-  buttons[randomMove].classList.add("y-filled");
+function myFunction() {
+    window.localStorage.setItem('playerOneName', input.value);
+    window.localStorage.setItem('playerTwoName', input2.value);
 }
 
-// array = [1, 2, 4, 6, 123];
 
-// array[0] = 1;
+function generateRandomNumber() {
+    return Math.round(Math.random() * 9);
+}
 
-// array[4] = 123;
+function botPressO() {
+    if (!arr.includes(0)) {
+        return
+    }
+    let randomMove = -1;
+    while (arr[randomMove] != 0 && arr.includes(0)) {
+        randomMove = generateRandomNumber();
+    };
+    arr[randomMove] = -1;
+    buttons[randomMove].classList.add("y-filled");
+}
+
+const bot = document.querySelector('.pve');
+bot.addEventListener('click', activatePve);
+
+function activatePve() {
+    pvp = false;
+    movementCheck();
+}
+
+const regular = document.querySelector('.pvp');
+regular.addEventListener('click', activatePvp);
+
+function activatePvp() {
+    pvp = true;
+    movementCheck();
+}
+
+function tieChecker() {
+    console.log(!arr.includes(0))
+    if (tie != false && !arr.includes(0)) {
+        alert("you tied")
+    };
+}
+
+function winCheck() {
+    if (arr[0] + arr[3] + arr[6] == 3) {
+        xWinConfirm();
+        tie = false
+
+    }
+    else if (arr[0] + arr[3] + arr[6] == -3) {
+        yWinConfirm();
+        tie = false
+
+    }
+    else if (arr[1] + arr[4] + arr[7] == 3) {
+        xWinConfirm();
+        tie = false
+    }
+    else if (arr[1] + arr[4] + arr[7] == -3) {
+        yWinConfirm();
+        tie = false
+    }
+    else if (arr[2] + arr[5] + arr[8] == 3) {
+        xWinConfirm();
+        tie = false
+    }
+    else if (arr[2] + arr[5] + arr[8] == -3) {
+        yWinConfirm();
+        tie = false
+    }
+    else if (arr[0] + arr[1] + arr[2] == 3) {
+        xWinConfirm();
+        tie = false
+    }
+    else if (arr[0] + arr[1] + arr[2] == -3) {
+        yWinConfirm();
+        tie = false
+    }
+    else if (arr[3] + arr[4] + arr[5] == 3) {
+        xWinConfirm();
+        tie = false
+    }
+    else if (arr[3] + arr[4] + arr[5] == -3) {
+        yWinConfirm();
+        tie = false
+    }
+    else if (arr[6] + arr[7] + arr[8] == 3) {
+        xWinConfirm();
+        tie = false
+    }
+    else if (arr[6] + arr[7] + arr[8] == -3) {
+        yWinConfirm();
+        tie = false
+
+    }
+    else if (arr[0] + arr[4] + arr[8] == 3) {
+        xWinConfirm()
+        tie = false
+    }
+    else if (arr[0] + arr[4] + arr[8] == -3) {
+        yWinConfirm();
+        tie = false
+    }
+    else if (arr[6] + arr[4] + arr[2] == 3) {
+        xWinConfirm();
+        tie = false
+    }
+    else if (arr[6] + arr[4] + arr[2] == -3) {
+        yWinConfirm();
+        tie = false
+    }
+}
+
+function movementCheck() {
+    if (pvp == true) {
+        buttons.forEach((element, index) => {
+            buttons[index].addEventListener("click", () => {
+                if (arr[index] == 0) {
+                    if (gameOver == false) {
+
+                        switch (turn) {
+                            case "x":
+                                element.classList.add('x-filled');
+                                updateArray(element, index);
+                                winCheck();
+                                tieChecker();
+                                turn = 'y';
+                                break;
+
+                            case "y":
+                                element.classList.add('y-filled')
+                                updateArray(element, index);
+                                winCheck();
+                                tieChecker();
+                                turn = 'x';
+                                break;
+                        }
+                    }
+                }
+            })
+        })
+    }
+    else if (pvp == false) {
+        buttons.forEach((element, index) => {
+            buttons[index].addEventListener("click", () => {
+                if (arr[index] == 0) {
+                    if (gameOver == false) {
+                        element.classList.add('x-filled');
+                        updateArray(element, index);
+                        botPressO();
+                        updateArray(element, index);
+                        winCheck();
+                        tieChecker();
+                    }
+                }
+            })
+        });
+    }
+};

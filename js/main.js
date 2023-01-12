@@ -1,104 +1,17 @@
 let turn = 'x'
 const buttons = document.querySelectorAll(".box");
-
 let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let gameOver = false;
 const pointsX = document.querySelector(".pointX");
 const points1 = pointsX.textContent;
 const pointsY = document.querySelector(".pointO");
 const points2 = pointsY.textContent;
-let pvp = true
+let pvp;
+let tie;
 let pointsPlayerX = parseInt(localStorage.getItem("Xpoints"));
 pointsX.textContent = pointsPlayerX;
 let pointsPlayerO = parseInt(localStorage.getItem("Opoints"));
 pointsY.textContent = pointsPlayerO;
-
-
-const bot = document.querySelector('.pve');
-bot.addEventListener('click', activatePve);
-
-function activatePve() {
-    pvp = false;
-    movementCheck();
-}
-
-const regular = document.querySelector('.pvp');
-regular.addEventListener('click', activatePvp);
-
-function activatePvp() {
-    pvp = true;
-    movementCheck();
-}
-
-function winCheck() {
-    if (arr[0] + arr[3] + arr[6] == 3) {
-        xWinConfirm();
-     
-
-    }
-    else if (arr[0] + arr[3] + arr[6] == -3) {
-        yWinConfirm();
-       
-    }
-    else if (arr[1] + arr[4] + arr[7] == 3) {
-        xWinConfirm();
-       
-    }
-    else if (arr[1] + arr[4] + arr[7] == -3) {
-        yWinConfirm();
-      
-    }
-    else if (arr[2] + arr[5] + arr[8] == 3) {
-        xWinConfirm();
-       
-    }
-    else if (arr[2] + arr[5] + arr[8] == -3) {
-        yWinConfirm();
-   
-    }
-    else if (arr[0] + arr[1] + arr[2] == 3) {
-        xWinConfirm();
-     
-    }
-    else if (arr[0] + arr[1] + arr[2] == -3) {
-        yWinConfirm();
- 
-    }
-    else if (arr[3] + arr[4] + arr[5] == 3) {
-        xWinConfirm();
-   
-    }
-    else if (arr[3] + arr[4] + arr[5] == -3) {
-        yWinConfirm();
-
-    }
-    else if (arr[6] + arr[7] + arr[8] == 3) {
-        xWinConfirm();
-     
-    }
-    else if (arr[6] + arr[7] + arr[8] == -3) {
-        yWinConfirm();
-     
-
-    }
-    else if (arr[0] + arr[4] + arr[8] == 3) {
-        xWinConfirm()
- 
-    }
-    else if (arr[0] + arr[4] + arr[8] == -3) {
-        yWinConfirm();
-
-    }
-    else if (arr[6] + arr[4] + arr[2] == 3) {
-        xWinConfirm();
-
-    }
-    else if (arr[6] + arr[4] + arr[2] == -3) {
-        yWinConfirm();
- 
-    }
-
-}
 
 const reload = document.querySelector('.reload');
 
@@ -107,11 +20,10 @@ reload.addEventListener('click', function () {
     movementCheck();
 })
 
-
 const reset = document.querySelector('.reset');
-location.reload()
+
 reset.addEventListener('click', function () {
-   location.reload();
+    location.reload();
     console.log(localStorage);
     gameOver = false;
     let resetO = 0
@@ -120,63 +32,9 @@ reset.addEventListener('click', function () {
     pointsX.textContent = resetX
     localStorage.setItem("Xpoints", "0");
     localStorage.setItem("Opoints", "0");
-});
+})
 
-function movementCheck() {
-    if (pvp == true) {
-        buttons.forEach((element, index) => {
-            buttons[index].addEventListener("click", () => {
-                if (arr[index] == 0) {
-                    if (gameOver == false) {
-
-                        switch (turn) {
-                            case "x":
-                                element.classList.add('x-filled');
-                                updateArray(element, index);
-                                winCheck();
-                                turn = 'y';
-                                break;
-
-                            case "y":
-                                element.classList.add('y-filled')
-                                updateArray(element, index);
-                                winCheck();
-                                turn = 'x';
-                                break;
-                        }
-                    }
-                }
-            })
-        })
-    }
-    else if (pvp == false) {
-        buttons.forEach((element, index) => {
-            buttons[index].addEventListener("click", () => {
-                if (arr[index] == 0) {
-                    if (gameOver == false) {
-                        switch (turn) {
-                            case "x":
-                                element.classList.add('x-filled');
-                                updateArray(element, index);
-                                winCheck();
-                                turn = 'y';
-                                break;
-
-                            case "y":
-                                botPressO();
-                                updateArray(element, index);
-                                winCheck();
-                                turn = 'x';
-                                break;
-                        }
-                    }
-                }
-            })
-        });
-    }
-};
 console.log(arr)
-
 
 let input = document.querySelector('.input');
 
@@ -185,10 +43,5 @@ let input2 = document.querySelector('.input2')
 let playerOneName;
 let playerTwoName;
 
-const save = document.querySelector('.saveName');
-save.addEventListener('click', myFunction);
 
-function myFunction() {
-    window.localStorage.setItem('playerOneName', input.value);
-    window.localStorage.setItem('playerTwoName', input2.value);
-}
+
